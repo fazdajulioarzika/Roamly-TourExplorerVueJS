@@ -4,7 +4,17 @@ Find destinations, check live weather, save favorites, and plan a simple day-by-
 A frontend portfolio project focused on UI/UX, public API integration, state management,
 accessibility, and testing.
 
-> **Demo:** _add your deployed URL here_ > **Screenshots:** _add images to `docs/` and link them here_
+**Live demo:** https:roamly.arzikadev.my.id
+
+## Screenshots
+
+| Home                          | Destination                             |
+| ----------------------------- | --------------------------------------- |
+| ![Home](docs/home-roamly.png) | ![Destination](docs/explore-roamly.png) |
+
+| Trip planner                    | Mobile                          |
+| ------------------------------- | ------------------------------- |
+| ![Trips](docs/saved-roamly.png) | ![Mobile](docs/plan-roamly.png) |
 
 ## Features
 

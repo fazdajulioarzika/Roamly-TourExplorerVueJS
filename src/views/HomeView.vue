@@ -17,9 +17,9 @@ watch(
 <template>
   <div>
     <section
-      class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20"
+      class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20"
     >
-      <div>
+      <div class="min-w-0">
         <p class="text-xs font-semibold uppercase tracking-widest text-primary">
           Travel explorer
         </p>
@@ -54,7 +54,7 @@ watch(
           >View all</RouterLink
         >
       </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <DestinationCard
           v-for="d in curated.slice(0, 4)"
           :key="d.id"
@@ -65,7 +65,7 @@ watch(
     <section class="bg-soft py-12 lg:py-16">
       <div class="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <h2 class="mb-6 text-2xl font-bold lg:text-3xl">Weather discovery</h2>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <WeatherPreview
             v-for="d in curated.slice(0, 3)"
             :key="d.id"

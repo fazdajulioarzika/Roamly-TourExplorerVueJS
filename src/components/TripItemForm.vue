@@ -30,7 +30,7 @@ function submit() {
 </script>
 <template>
   <form
-    class="mt-3 grid gap-2 sm:grid-cols-[1fr_8rem_1fr_auto]"
+    class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-[1fr_8rem_1fr_auto]"
     @submit.prevent="submit"
   >
     <input

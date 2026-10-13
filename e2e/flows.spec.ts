@@ -77,3 +77,31 @@ test("destination shows map with marker", async ({ page }) => {
   ).toBeVisible();
   await expect(page.locator(".leaflet-marker-icon")).toHaveCount(1);
 });
+test("no horizontal overflow at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  for (const path of [
+    "/",
+    "/explore",
+    "/destination/kyoto",
+    "/trips",
+    "/saved",
+  ]) {
+    await page.goto(path);
+    await expect(page.locator("h1").first()).toBeVisible();
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth
+    );
+    expect(overflow, `overflow on ${path}`).toBe(false);
+  }
+});
+
+test("mobile menu opens and closes with Escape", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 700 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Toggle menu" }).click();
+  await expect(page.getByRole("navigation", { name: "Mobile" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("navigation", { name: "Mobile" })).toBeHidden();
+});

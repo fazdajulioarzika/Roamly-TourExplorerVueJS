@@ -23,7 +23,7 @@ function remove(id: string, title: string) {
     <h1 class="text-3xl font-bold">My Trips</h1>
     <p class="mt-1 text-sm text-muted">Stored locally in this browser only.</p>
     <form
-      class="mt-6 grid gap-3 rounded-card bg-soft p-5 md:grid-cols-[2fr_1fr_1fr_auto]"
+      class="mt-6 grid grid-cols-1 gap-3 rounded-card bg-soft p-5 md:grid-cols-[2fr_1fr_1fr_auto]"
       @submit.prevent="create"
     >
       <input
@@ -59,7 +59,7 @@ function remove(id: string, title: string) {
     >
       No trips yet. Create your first one above.
     </p>
-    <ul v-else class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <ul v-else class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <li
         v-for="t in trips.trips"
         :key="t.id"

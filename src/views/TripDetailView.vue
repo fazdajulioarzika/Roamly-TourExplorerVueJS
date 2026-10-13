@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import { ArrowDown, ArrowUp, Pencil, Trash2 } from "lucide-vue-next";
 import { useTrips } from "@/stores/trips";
 import TripItemForm from "@/components/TripItemForm.vue";
+import { setTitle } from "@/utils/title";
 const route = useRoute();
 const store = useTrips();
 const trip = computed(() => store.byId(String(route.params.id)));
+watchEffect(() => {
+  if (trip.value) setTitle(trip.value.title);
+});
 const icon =
   "grid h-9 w-9 place-items-center rounded-full outline-none hover:bg-soft focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-30";
 const input =
@@ -49,7 +53,7 @@ function saveTrip() {
 
       <form
         v-if="editingTrip"
-        class="mt-3 grid gap-3 rounded-card bg-soft p-4 md:grid-cols-[2fr_1fr_1fr_auto]"
+        class="mt-3 grid grid-cols-1 gap-3 rounded-card bg-soft p-4 md:grid-cols-[2fr_1fr_1fr_auto]"
         @submit.prevent="saveTrip"
       >
         <input

@@ -8,6 +8,7 @@ import { getDestination } from "@/services/geocoding";
 import { useFavorites } from "@/stores/favorites";
 import type { Destination } from "@/types";
 import DestinationMap from "@/components/DestinationMap.vue";
+import { setTitle } from "@/utils/title";
 const route = useRoute();
 const fav = useFavorites();
 const dest = ref<Destination | null>(null);
@@ -19,6 +20,7 @@ watch(
     try {
       dest.value = await getDestination(String(id));
       state.value = dest.value ? "ok" : "missing";
+      if (dest.value) setTitle(dest.value.name);
     } catch {
       state.value = "missing";
     }
@@ -60,7 +62,7 @@ watch(
         :alt="`${dest.name}, ${dest.country}`"
       />
       <AddToTrip class="mt-6" :destination="dest" />
-      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
         <WeatherPreview :destination="dest" full />
         <DestinationMap
           class="h-80 w-full"

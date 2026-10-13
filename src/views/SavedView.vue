@@ -18,7 +18,7 @@ const fav = useFavorites();
         >Explore destinations</RouterLink
       >
     </div>
-    <div v-else class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div v-else class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <DestinationCard v-for="d in fav.items" :key="d.id" :destination="d" />
     </div>
   </div>

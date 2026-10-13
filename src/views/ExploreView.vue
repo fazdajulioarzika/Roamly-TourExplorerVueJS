@@ -83,7 +83,7 @@ const list = computed(() => {
 
     <div
       v-if="status === 'loading'"
-      class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
       role="status"
       aria-label="Searching"
     >
@@ -102,7 +102,7 @@ const list = computed(() => {
     <p v-else-if="!list.length" class="rounded-card bg-soft p-6 text-muted">
       No destinations found.
     </p>
-    <div v-else class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div v-else class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <DestinationCard v-for="d in list" :key="d.id" :destination="d" />
     </div>
   </div>
